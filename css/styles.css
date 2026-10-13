@@ -16,16 +16,13 @@ Color Palette
 /* Box Model Fix */
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
 *:before,
 *:after {
     box-sizing: inherit;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -44,18 +41,18 @@ h3 {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 700;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
     margin-top: 0;
 }
 
 h3 {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
     margin-top: 0;
 }
@@ -133,17 +130,39 @@ header {
     object-fit: cover;
 }
 
+/* Align Header Columns */
+header .column-narrow {
+    padding-right: 3%;
+    min-height: 0;
+}
+
+header .column-wide {
+    padding-left: 15px;
+    min-height: 0;
+}
+
 header h1,
 header h2 {
     margin: 0;
 }
 
+header h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
 header h2 {
     color: #D8E2E1;
+    font-size: 23px;
+    line-height: 1.35;
+    margin-bottom: 22px;
 }
 
 header p {
     color: #F4F3EF;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
 .location {
@@ -161,12 +180,12 @@ header p {
 
 .work-experience h2 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .job {
     overflow: hidden;
-    padding: 30px 0;
+    padding: 28px 0;
     border-bottom: 1px solid #D8E2E1;
 }
 
@@ -174,14 +193,31 @@ header p {
     border-bottom: none;
 }
 
+/* Job Column Adjustments */
+.job .column-narrow,
+.job .column-wide {
+    min-height: 0;
+}
+
+.job .column-narrow {
+    padding-right: 20px;
+}
+
+.job h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
 .company {
     font-weight: 600;
+    font-size: 14px;
 }
 
 .date {
     color: #3E5963;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .job .column-wide p:first-child,
@@ -191,6 +227,12 @@ header p {
 
 .job .column-wide ul {
     padding-left: 22px;
+}
+
+.job .column-wide p,
+.job .column-wide li {
+    font-size: 14px;
+    line-height: 1.75;
 }
 
 
@@ -278,6 +320,14 @@ footer p {
         text-align: center;
     }
 
+    header .column-narrow,
+    header .column-wide {
+        width: 100%;
+        float: none;
+        padding: 0;
+        min-height: 0;
+    }
+
     .profile-img {
         width: 190px;
         max-width: 100%;
@@ -286,8 +336,12 @@ footer p {
         margin: 0 auto 25px;
     }
 
-    h1 {
-        font-size: 38px;
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h2 {
+        font-size: 22px;
     }
 
     h2 {
@@ -296,6 +350,14 @@ footer p {
 
     .job {
         padding: 25px 0;
+    }
+
+    .job .column-narrow,
+    .job .column-wide {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+        min-height: 0;
     }
 
     .work-experience h2 {
