@@ -1,3 +1,4 @@
+
 /*
 Color Palette
 
@@ -9,11 +10,18 @@ Color Palette
 */
 
 
-/* Global styles
+/* Global Styles
 ------------------------------------*/
 
-* {
+/* Box Model Fix */
+html {
     box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 html {
@@ -38,12 +46,12 @@ h3 {
 h1 {
     font-size: 48px;
     font-weight: 700;
-    margin: 0 0 10px;
 }
 
 h2 {
     font-size: 30px;
     font-weight: 600;
+    margin-top: 0;
 }
 
 h3 {
@@ -57,9 +65,26 @@ li {
     line-height: 1.7;
 }
 
-.content-wrapper {
-    max-width: 1100px;
+/* Content Wrapper */
+.content-wrap {
+    max-width: 950px;
     margin: 0 auto;
+    padding: 50px;
+    overflow: hidden;
+}
+
+/* Reusable Column Styles */
+.column-narrow {
+    width: 30%;
+    float: left;
+    padding-right: 3%;
+    min-height: 175px;
+}
+
+.column-wide {
+    width: 70%;
+    float: left;
+    min-height: 225px;
 }
 
 
@@ -92,38 +117,29 @@ nav a:hover {
 }
 
 
-/* Header & Footer
+/* Header
 ------------------------------------*/
 
 header {
     background-color: #27313B;
     color: #FFFFFF;
-    padding: 65px 30px;
 }
 
-.header-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 55px;
-}
-
-header img {
-    width: 230px;
-    height: 230px;
-    object-fit: cover;
+/* Profile Image */
+.profile-img {
     border-radius: 50%;
     border: 6px solid #D8E2E1;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.intro-text {
-    max-width: 720px;
+header h1,
+header h2 {
+    margin: 0;
 }
 
 header h2 {
     color: #D8E2E1;
-    margin-top: 0;
 }
 
 header p {
@@ -136,63 +152,20 @@ header p {
 }
 
 
-footer {
-    background-color: #27313B;
-    color: #FFFFFF;
-    padding: 50px 30px;
-    text-align: center;
-}
-
-footer h2 {
-    margin-top: 0;
-}
-
-footer p {
-    color: #D8E2E1;
-}
-
-.contact-links {
-    margin: 25px 0;
-}
-
-.contact-links a {
-    display: inline-block;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 5px 15px;
-    padding-bottom: 4px;
-    border-bottom: 2px solid #3E5963;
-}
-
-.contact-links a:hover {
-    color: #D8E2E1;
-}
-
-.copyright {
-    font-size: 13px;
-    margin-top: 30px;
-}
-
-
 /* Work Experience
 ------------------------------------*/
 
 .work-experience {
     background-color: #F4F3EF;
-    padding: 70px 30px;
 }
 
 .work-experience h2 {
     text-align: center;
-    margin-top: 0;
     margin-bottom: 50px;
 }
 
 .job {
-    display: grid;
-    grid-template-columns: 32% 68%;
-    gap: 40px;
+    overflow: hidden;
     padding: 30px 0;
     border-bottom: 1px solid #D8E2E1;
 }
@@ -211,8 +184,12 @@ footer p {
     font-size: 14px;
 }
 
-.job-description ul {
+.job .column-wide p:first-child,
+.job .column-wide ul:first-child {
     margin-top: 0;
+}
+
+.job .column-wide ul {
     padding-left: 22px;
 }
 
@@ -222,12 +199,10 @@ footer p {
 
 .education {
     background-color: #D8E2E1;
-    padding: 70px 30px;
     text-align: center;
 }
 
 .education h2 {
-    margin-top: 0;
     margin-bottom: 35px;
 }
 
@@ -241,6 +216,42 @@ footer p {
 }
 
 
+/* Footer
+------------------------------------*/
+
+footer {
+    background-color: #27313B;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+footer p {
+    color: #D8E2E1;
+}
+
+.contact-info {
+    margin: 25px 0;
+}
+
+.contact-info a {
+    padding: 10px;
+    display: inline-block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid #3E5963;
+}
+
+.contact-info a:hover {
+    color: #D8E2E1;
+}
+
+.copyright {
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+
 /* Responsive Design
 ------------------------------------*/
 
@@ -251,14 +262,28 @@ footer p {
         margin: 6px 10px;
     }
 
-    .header-content {
-        flex-direction: column;
+    .content-wrap {
+        padding: 30px 20px;
+    }
+
+    .column-narrow,
+    .column-wide {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+        min-height: 0;
+    }
+
+    header {
         text-align: center;
     }
 
-    header img {
+    .profile-img {
         width: 190px;
+        max-width: 100%;
         height: 190px;
+        display: block;
+        margin: 0 auto 25px;
     }
 
     h1 {
@@ -270,7 +295,10 @@ footer p {
     }
 
     .job {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        padding: 25px 0;
+    }
+
+    .work-experience h2 {
+        margin-bottom: 25px;
     }
 }
